@@ -115,6 +115,36 @@
             <p>El estudio promete más diversidad y la llegada de creativos internacionales a los proyectos más esperados.</p>
             <img src="imagen/marvel.png" class="img-fluid w-100 rounded" alt="Marvel Fase 7">
         </template>
+        <template id="noticia-10">
+            <h1 class="fw-bold display-6">Festival de Teatro de Manizales celebra su edición 50</h1>
+            <p class="lead">El evento más importante del teatro en Colombia cumple medio siglo con una programación que reúne a compañías nacionales e internacionales.</p>
+            <p>La ciudad cafetera se prepara para recibir a miles de espectadores en las distintas sedes. El festival ha sido clave en la formación de generaciones de artistas colombianos.</p>
+            <img src="imagen/teatro.jpg" class="img-fluid w-100 rounded" alt="Festival Teatro Manizales">
+        </template>
+        <template id="noticia-11">
+            <h1 class="fw-bold display-6">Karol G anuncia concierto en Bogotá para 2026</h1>
+            <p class="lead">La barranquillera llenará el Estadio El Campín como parte de su gira mundial, en lo que será uno de los conciertos más esperados del año.</p>
+            <p>Las entradas se agotaron en horas y los fanáticos ya preparan el recibimiento. La artista promete un show inolvidable con su repertorio más reciente.</p>
+            <img src="imagen/karol.jpeg" class="img-fluid w-100 rounded" alt="Karol G Bogotá">
+        </template>
+        <template id="noticia-12">
+            <h1 class="fw-bold display-6">"La ley del corazón" vuelve a la pantalla</h1>
+            <p class="lead">La serie colombiana más vista de los últimos años regresa con una nueva temporada que continúa las historias de sus personajes.</p>
+            <p>El elenco confirmó su participación y las grabaciones ya están en curso. La producción mantendrá el tono dramático que conquistó a la audiencia.</p>
+            <img src="imagen/novela.jpg" class="img-fluid w-100 rounded" alt="La ley del corazón">
+        </template>
+        <template id="noticia-13">
+            <h1 class="fw-bold display-6">Película colombiana triunfa en el Festival de Berlín 2026</h1>
+            <p class="lead">Una producción colombiana fue premiada en la Berlinale, el festival de cine que se celebra esta semana en la capital alemana.</p>
+            <p>El director y el elenco recibieron el reconocimiento en la ceremonia de clausura. La crítica internacional destacó la narrativa y la calidad técnica del filme que representa al cine latinoamericano.</p>
+            <img src="imagen/pelicula.jpg" class="img-fluid w-100 rounded" alt="Colombia Berlinale">
+        </template>
+        <template id="noticia-14">
+            <h1 class="fw-bold display-6">Festival Estéreo Picnic 2026 confirma cartel</h1>
+            <p class="lead">El festival más grande de Colombia anuncia los artistas que se presentarán en su próxima edición en Bogotá.</p>
+            <p>La combinación de talento nacional e internacional promete tres días de música inolvidables. Las preventas ya están disponibles y la expectativa es máxima.</p>
+            <img src="imagen/pic.jpg" class="img-fluid w-100 rounded" alt="Estéreo Picnic 2026">
+        </template>
         <script>
         var noticiasMasLeidas = [
           {titulo:'"Barbenheimer" arrasa en taquilla mundial', resumen:'Barbie y Oppenheimer dominan los cines y apuntan a grandes premios.', id:0, img: 'imagen/bar.jpg', region:'mundo'},
@@ -126,7 +156,12 @@
           {titulo:'Adele lanza álbum sorpresa y rompe streaming', resumen:'Reacciones masivas al nuevo disco inesperado de Adele.', id:6, img: 'imagen/adele.jpg', region:'mundo'},
           {titulo:'"La Casa de Papel" concluye con audiencia histórica', resumen:'El adiós a la serie sorprende con un giro final.', id:7, img: 'imagen/cp.png', region:'mundo'},
           {titulo:'Nominados a los Grammy 2026: gran presencia latina', resumen:'Música hispana lidera las nominaciones clave.', id:8, img: 'imagen/grammy.jpg', region:'mundo'},
-          {titulo:'Marvel anuncia Fase 7 con nuevas películas y series', resumen:'Superhéroes y nuevas historias en la agenda Marvel.', id:9, img: 'imagen/marvel.png', region:'mundo'}
+          {titulo:'Marvel anuncia Fase 7 con nuevas películas y series', resumen:'Superhéroes y nuevas historias en la agenda Marvel.', id:9, img: 'imagen/marvel.png', region:'mundo'},
+          {titulo:'Festival de Teatro de Manizales celebra edición 50', resumen:'El evento más importante del teatro en Colombia cumple medio siglo.', id:10, img: 'imagen/teatro.jpg', region:'colombia'},
+          {titulo:'Karol G anuncia concierto en Bogotá para 2026', resumen:'La barranquillera llenará el Estadio El Campín en su gira.', id:11, img: 'imagen/karol.jpeg', region:'colombia'},
+          {titulo:'"La ley del corazón" vuelve a la pantalla', resumen:'La serie colombiana más vista regresa con nueva temporada.', id:12, img: 'imagen/novela.jpg', region:'colombia'},
+          {titulo:'Película colombiana triunfa en Berlinale 2026', resumen:'Producción nacional premiada en el Festival de Berlín.', id:13, img: 'imagen/pelicula.jpg', region:'colombia'},
+          {titulo:'Festival Estéreo Picnic 2026 confirma cartel', resumen:'Los mejores artistas nacionales e internacionales en Bogotá.', id:14, img: 'imagen/pic.jpg', region:'colombia'}
         ];
         function rellenarMasLeidas() {
           var lista = document.getElementById('mas-leidas-lista');
