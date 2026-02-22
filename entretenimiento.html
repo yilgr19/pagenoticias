@@ -18,6 +18,21 @@
             <span class="input-group-text"><i class="bi bi-search"></i></span>
             <input type="text" id="busqueda" class="form-control" placeholder="Buscar noticias...">
         </div>
+        <div class="dropdown me-2 mb-2 mb-md-0">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="menuSecciones" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list-ul me-1"></i> Secciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="menuSecciones">
+                <li><a class="dropdown-item" href="index.html">Inicio</a></li>
+                <li><a class="dropdown-item" href="deportes.html">Deportes</a></li>
+                <li><a class="dropdown-item" href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a class="dropdown-item" href="judiciales.html">Judiciales</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="">Todos</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="colombia">Colombia</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="mundo">Mundo</a></li>
+            </ul>
+        </div>
         <a class="nav-link text-dark" href="index.html">Inicio</a>
         <a class="nav-link text-dark" href="deportes.html">Deportes</a>
         <a class="nav-link text-dark" href="entretenimiento.html">Entretenimiento</a>
@@ -38,6 +53,7 @@
             </div>
         </div>
         <div id="sin-resultados" class="text-center text-muted py-4 d-none">No se encontraron noticias con esa palabra clave.</div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Noticias principales como templates -->
         <template id="noticia-0">
             <h1 class="fw-bold display-6">"Barbenheimer" arrasa en taquilla mundial</h1>
@@ -101,23 +117,23 @@
         </template>
         <script>
         var noticiasMasLeidas = [
-          {titulo:'"Barbenheimer" arrasa en taquilla mundial', resumen:'Barbie y Oppenheimer dominan los cines y apuntan a grandes premios.', id:0, img: 'imagen/bar.jpg'},
-          {titulo:'Taylor Swift anuncia gira mundial para 2026', resumen:'Expectativa altísima por el tour global de la cantante.', id:1, img: 'imagen/taylor.jpeg'},
-          {titulo:'Lista de ganadores en los Premios Emmy 2026', resumen:'Premian a series y actores inesperados, brillo latino.', id:2, img: 'imagen/emmys.png'},
-          {titulo:'"Stranger Things" llega a su esperado final', resumen:'El desenlace marca récord en visualizaciones streaming.', id:3, img: 'imagen/st.jpg'},
-          {titulo:'España gana Eurovisión 2026', resumen:'La victoria histórica celebrada en todo el país.', id:4, img: 'imagen/gorda.jpg'},
-          {titulo:'Regresa el universo Harry Potter a la pantalla', resumen:'Nueva saga mágica entusiasma a fans del mundo.', id:5, img: 'imagen/hp.png'},
-          {titulo:'Adele lanza álbum sorpresa y rompe streaming', resumen:'Reacciones masivas al nuevo disco inesperado de Adele.', id:6, img: 'imagen/adele.jpg'},
-          {titulo:'"La Casa de Papel" concluye con audiencia histórica', resumen:'El adiós a la serie sorprende con un giro final.', id:7, img: 'imagen/cp.png'},
-          {titulo:'Nominados a los Grammy 2026: gran presencia latina', resumen:'Música hispana lidera las nominaciones clave.', id:8, img: 'imagen/grammy.jpg'},
-          {titulo:'Marvel anuncia Fase 7 con nuevas películas y series', resumen:'Superhéroes y nuevas historias en la agenda Marvel.', id:9, img: 'imagen/marvel.png'}
+          {titulo:'"Barbenheimer" arrasa en taquilla mundial', resumen:'Barbie y Oppenheimer dominan los cines y apuntan a grandes premios.', id:0, img: 'imagen/bar.jpg', region:'mundo'},
+          {titulo:'Taylor Swift anuncia gira mundial para 2026', resumen:'Expectativa altísima por el tour global de la cantante.', id:1, img: 'imagen/taylor.jpeg', region:'mundo'},
+          {titulo:'Lista de ganadores en los Premios Emmy 2026', resumen:'Premian a series y actores inesperados, brillo latino.', id:2, img: 'imagen/emmys.png', region:'mundo'},
+          {titulo:'"Stranger Things" llega a su esperado final', resumen:'El desenlace marca récord en visualizaciones streaming.', id:3, img: 'imagen/st.jpg', region:'mundo'},
+          {titulo:'España gana Eurovisión 2026', resumen:'La victoria histórica celebrada en todo el país.', id:4, img: 'imagen/gorda.jpg', region:'mundo'},
+          {titulo:'Regresa el universo Harry Potter a la pantalla', resumen:'Nueva saga mágica entusiasma a fans del mundo.', id:5, img: 'imagen/hp.png', region:'mundo'},
+          {titulo:'Adele lanza álbum sorpresa y rompe streaming', resumen:'Reacciones masivas al nuevo disco inesperado de Adele.', id:6, img: 'imagen/adele.jpg', region:'mundo'},
+          {titulo:'"La Casa de Papel" concluye con audiencia histórica', resumen:'El adiós a la serie sorprende con un giro final.', id:7, img: 'imagen/cp.png', region:'mundo'},
+          {titulo:'Nominados a los Grammy 2026: gran presencia latina', resumen:'Música hispana lidera las nominaciones clave.', id:8, img: 'imagen/grammy.jpg', region:'mundo'},
+          {titulo:'Marvel anuncia Fase 7 con nuevas películas y series', resumen:'Superhéroes y nuevas historias en la agenda Marvel.', id:9, img: 'imagen/marvel.png', region:'mundo'}
         ];
         function rellenarMasLeidas() {
           var lista = document.getElementById('mas-leidas-lista');
           lista.innerHTML = '';
           noticiasMasLeidas.forEach(function(noticia) {
             lista.innerHTML += `
-              <div class='d-flex mb-3 mas-leidas-nota item-noticia' onclick='cargarNoticia(${noticia.id})'>
+              <div class='d-flex mb-3 mas-leidas-nota item-noticia' data-region='${noticia.region||"mundo"}' onclick='cargarNoticia(${noticia.id})'>
                 <img src='${noticia.img}' class='flex-shrink-0 rounded' width='80' alt='${noticia.titulo}'>
                 <div class='ms-3'>
                   <div class='fw-semibold'>${noticia.titulo}</div>
@@ -152,6 +168,7 @@
           (function(){
             var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
             var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            var filtroRegion='';
             function actualizarFecha(){
               var d=new Date();
               var el=document.getElementById('fecha-actual');
@@ -161,17 +178,20 @@
               var busqEl=document.getElementById('busqueda');
               var q=(busqEl&&busqEl.value)||'';
               var term=q.trim().toLowerCase();
-              var items=document.querySelectorAll('.item-noticia');
+              var items=document.querySelectorAll('.item-noticia[data-region]');
               var sinRes=document.getElementById('sin-resultados');
               var visible=0;
               for(var i=0;i<items.length;i++){
                 var it=items[i];
                 var txt=(it.textContent||'').toLowerCase();
-                var match=!term||txt.indexOf(term)!==-1;
+                var region=it.getAttribute('data-region')||'';
+                var matchTexto=!term||txt.indexOf(term)!==-1;
+                var matchRegion=!filtroRegion||region===filtroRegion;
+                var match=matchTexto&&matchRegion;
                 it.classList.toggle('d-none',!match);
                 if(match) visible++;
               }
-              if(sinRes) sinRes.classList.toggle('d-none',visible>0||!term);
+              if(sinRes) sinRes.classList.toggle('d-none',visible>0||(!term&&!filtroRegion));
             }
             actualizarFecha();
             setInterval(actualizarFecha,60000);
@@ -181,6 +201,13 @@
               busq.addEventListener('keyup',filtrar);
               busq.addEventListener('paste',filtrar);
             }
+            document.querySelectorAll('.filtrar-region').forEach(function(lnk){
+              lnk.addEventListener('click',function(e){
+                e.preventDefault();
+                filtroRegion=(this.getAttribute('data-region')||'').trim();
+                filtrar();
+              });
+            });
           })();
         };
         </script>

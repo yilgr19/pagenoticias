@@ -17,6 +17,21 @@
             <span class="input-group-text"><i class="bi bi-search"></i></span>
             <input type="text" id="busqueda" class="form-control" placeholder="Buscar noticias...">
         </div>
+        <div class="dropdown me-2 mb-2 mb-md-0">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="menuSecciones" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list-ul me-1"></i> Filtrar
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="menuSecciones">
+                <li><a class="dropdown-item" href="index.html">Inicio</a></li>
+                <li><a class="dropdown-item" href="deportes.html">Deportes</a></li>
+                <li><a class="dropdown-item" href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a class="dropdown-item" href="judiciales.html">Judiciales</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="">Todos</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="colombia">Colombia</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="mundo">Mundo</a></li>
+            </ul>
+        </div>
         <a class="nav-link text-dark" href="index.html">Inicio</a>
         <a class="nav-link text-dark" href="deportes.html">Deportes</a>
         <a class="nav-link text-dark" href="entretenimiento.html">Entretenimiento</a>
@@ -27,7 +42,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="list-group mb-3">
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">1</span>
                         <img src="imagen/gamin.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Deportes">
                         <div>
@@ -35,7 +50,7 @@
                             <small>Barcelona recuperó la primera posición con un desempeño destacado en LaLiga de España.</small>
                         </div>
                     </a>
-                    <a href="judiciales.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="judiciales.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="colombia">
                         <span class="me-3 fs-4 text-dark">2</span>
                         <img src="imagen/corte.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Judiciales">
                         <div>
@@ -43,7 +58,7 @@
                             <small>El tribunal archivó la causa sobre cargos en la Dian para 26 congresistas.</small>
                         </div>
                     </a>
-                    <a href="entretenimiento.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="entretenimiento.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">3</span>
                         <img src="imagen/bar.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Entretenimiento">
                         <div>
@@ -51,7 +66,7 @@
                             <small>Ambas películas continúan rompiendo récords de taquilla en todo el mundo.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">4</span>
                         <img src="imagen/usa.png" class="me-3" style="width:100px;max-width:20vw;" alt="Oro olímpico USA">
                         <div>
@@ -59,7 +74,7 @@
                             <small>Triunfo histórico para Estados Unidos en la final olímpica.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">5</span>
                         <img src="imagen/messi.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Messi investigacion">
                         <div>
@@ -67,7 +82,7 @@
                             <small>Analizan posible violación de protocolos tras partido reciente.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">6</span>
                         <img src="imagen/nfl.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="NFL Draft">
                         <div>
@@ -75,7 +90,7 @@
                             <small>Mariscales de campo y defensas encabezan proyecciones.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">7</span>
                         <img src="imagen/duke.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Duke Basket">
                         <div>
@@ -83,7 +98,7 @@
                             <small>Solidez defensiva da victoria y coloca a Duke como favorito NCAA.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">8</span>
                         <img src="imagen/ufc.png" class="me-3" style="width:100px;max-width:20vw;" alt="Boxeo UFC">
                         <div>
@@ -91,7 +106,7 @@
                             <small>Controversia tras el fichaje entre Zuffa Boxing y Matchroom.</small>
                         </div>
                     </a>
-                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="deportes.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">9</span>
                         <img src="imagen/gu.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Eileen Gu Olympic">
                         <div>
@@ -99,7 +114,7 @@
                             <small>Dominio absoluto en la prueba de esquí acrobático.</small>
                         </div>
                     </a>
-                    <a href="entretenimiento.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia">
+                    <a href="entretenimiento.html" class="list-group-item list-group-item-action d-flex align-items-center item-noticia" data-region="mundo">
                         <span class="me-3 fs-4 text-dark">10</span>
                         <img src="imagen/grammy.jpg" class="me-3" style="width:100px;max-width:20vw;" alt="Grammy 2026">
                         <div>
@@ -112,6 +127,7 @@
         </div>
         <div id="sin-resultados" class="text-center text-muted py-4 d-none">No se encontraron noticias con esa palabra clave.</div>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         (function(){
             var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
@@ -121,6 +137,7 @@
                 var el=document.getElementById('fecha-actual');
                 if(el) el.textContent=dias[d.getDay()]+', '+d.getDate()+' de '+meses[d.getMonth()]+' de '+d.getFullYear();
             }
+            var filtroRegion='';
             function filtrar(){
                 var busqEl=document.getElementById('busqueda');
                 var q=(busqEl&&busqEl.value)||'';
@@ -131,11 +148,14 @@
                 for(var i=0;i<items.length;i++){
                     var it=items[i];
                     var txt=(it.textContent||'').toLowerCase();
-                    var match=!term||txt.indexOf(term)!==-1;
+                    var region=it.getAttribute('data-region')||'';
+                    var matchTexto=!term||txt.indexOf(term)!==-1;
+                    var matchRegion=!filtroRegion||region===filtroRegion;
+                    var match=matchTexto&&matchRegion;
                     it.classList.toggle('d-none',!match);
                     if(match) visible++;
                 }
-                if(sinRes) sinRes.classList.toggle('d-none',visible>0||!term);
+                if(sinRes) sinRes.classList.toggle('d-none',visible>0||(!term&&!filtroRegion));
             }
             actualizarFecha();
             setInterval(actualizarFecha,60000);
@@ -145,6 +165,13 @@
                 busq.addEventListener('keyup',filtrar);
                 busq.addEventListener('paste',filtrar);
             }
+            document.querySelectorAll('.filtrar-region').forEach(function(lnk){
+                lnk.addEventListener('click',function(e){
+                    e.preventDefault();
+                    filtroRegion=(this.getAttribute('data-region')||'').trim();
+                    filtrar();
+                });
+            });
         })();
     </script>
 </body>

@@ -18,6 +18,21 @@
             <span class="input-group-text"><i class="bi bi-search"></i></span>
             <input type="text" id="busqueda" class="form-control" placeholder="Buscar noticias...">
         </div>
+        <div class="dropdown me-2 mb-2 mb-md-0">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="menuSecciones" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-list-ul me-1"></i> Secciones
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="menuSecciones">
+                <li><a class="dropdown-item" href="index.html">Inicio</a></li>
+                <li><a class="dropdown-item" href="deportes.html">Deportes</a></li>
+                <li><a class="dropdown-item" href="entretenimiento.html">Entretenimiento</a></li>
+                <li><a class="dropdown-item" href="judiciales.html">Judiciales</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="">Todos</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="colombia">Colombia</a></li>
+                <li><a class="dropdown-item filtrar-region" href="#" data-region="mundo">Mundo</a></li>
+            </ul>
+        </div>
         <a class="nav-link text-dark" href="index.html">Inicio</a>
         <a class="nav-link text-dark" href="deportes.html">Deportes</a>
         <a class="nav-link text-dark" href="entretenimiento.html">Entretenimiento</a>
@@ -35,70 +50,70 @@
             <div class="col-md-4">
                 <h3 class="fw-bold border-bottom pb-2 mb-3">Más leídas</h3>
                 <!-- 10 noticias, todas con la misma imagen por defecto -->
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(0)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(0)">
                     <img src="imagen/corte.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Investigación archivada a congresistas</div>
                         <small>Suprema decide sobre gestión en la Dian.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(1)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(1)">
                     <img src="imagen/rata.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">EPS en el centro de la polémica</div>
                         <small>Debate por privacidad en el sistema de salud.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(2)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(2)">
                     <img src="imagen/con - copia.jpeg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Red de contrabando desmantelada</div>
                         <small>Operativo anticorrupción en el Pacífico colombiano.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(3)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(3)">
                     <img src="imagen/sapo.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Corrupción en contratación estatal</div>
                         <small>Empresarios y funcionarios bajo la lupa judicial.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(4)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(4)">
                     <img src="imagen/ratas.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Derecho a la protesta garantizado</div>
                         <small>Liberan manifestantes tras fallo judicial histórico.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(5)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(5)">
                     <img src="imagen/sentencia.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Condena ejemplar por feminicidio</div>
                         <small>Antioquia sienta precedente contra violencia de género.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(6)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(6)">
                     <img src="imagen/ratas2.jpeg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Banda de extorsionistas fue desarticulada</div>
                         <small>Golpe policial a la delincuencia organizada en Bogotá.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(7)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(7)">
                     <img src="imagen/ex.jpg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Lavado de activos: exgobernador procesado</div>
                         <small>Fuertes pruebas en contra de exfuncionario regional.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(8)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(8)">
                     <img src="imagen/loros.jpeg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Denuncias ambientales en crecimiento</div>
                         <small>Fiscales y jueces priorizan delitos ecológicos.</small>
                     </div>
                 </div>
-                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(9)">
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" data-region="colombia" onclick="cargarNoticia(9)">
                     <img src="imagen/lideres.jpeg" class="flex-shrink-0 rounded" width="80" alt="Noticia Judicial">
                     <div class="ms-3">
                         <div class="fw-semibold">Protección a líderes sociales: orden judicial</div>
@@ -179,6 +194,7 @@
             <img src="imagen/lideres.jpeg" class="img-fluid w-100 rounded" alt="Protección líderes sociales">
         </template>
         <div id="sin-resultados" class="text-center text-muted py-4 d-none">No se encontraron noticias con esa palabra clave.</div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
         <script>
             function cargarNoticia(idx) {
                 var content = document.getElementById('noticia-' + idx).content.cloneNode(true);
@@ -203,6 +219,7 @@
                 (function(){
                     var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
                     var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+                    var filtroRegion='';
                     function actualizarFecha(){
                         var d=new Date();
                         var el=document.getElementById('fecha-actual');
@@ -212,17 +229,20 @@
                         var busqEl=document.getElementById('busqueda');
                         var q=(busqEl&&busqEl.value)||'';
                         var term=q.trim().toLowerCase();
-                        var items=document.querySelectorAll('.item-noticia');
+                        var items=document.querySelectorAll('.item-noticia[data-region]');
                         var sinRes=document.getElementById('sin-resultados');
                         var visible=0;
                         for(var i=0;i<items.length;i++){
                             var it=items[i];
                             var txt=(it.textContent||'').toLowerCase();
-                            var match=!term||txt.indexOf(term)!==-1;
+                            var region=it.getAttribute('data-region')||'';
+                            var matchTexto=!term||txt.indexOf(term)!==-1;
+                            var matchRegion=!filtroRegion||region===filtroRegion;
+                            var match=matchTexto&&matchRegion;
                             it.classList.toggle('d-none',!match);
                             if(match) visible++;
                         }
-                        if(sinRes) sinRes.classList.toggle('d-none',visible>0||!term);
+                        if(sinRes) sinRes.classList.toggle('d-none',visible>0||(!term&&!filtroRegion));
                     }
                     actualizarFecha();
                     setInterval(actualizarFecha,60000);
@@ -232,6 +252,13 @@
                         busq.addEventListener('keyup',filtrar);
                         busq.addEventListener('paste',filtrar);
                     }
+                    document.querySelectorAll('.filtrar-region').forEach(function(lnk){
+                        lnk.addEventListener('click',function(e){
+                            e.preventDefault();
+                            filtroRegion=(this.getAttribute('data-region')||'').trim();
+                            filtrar();
+                        });
+                    });
                 })();
             }
         </script>
