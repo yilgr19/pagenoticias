@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entretenimiento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center">
+        <img src="imagen/logo.png" alt="Logo">
+        <div id="fecha-actual" class="mt-2 text-muted small"></div>
+        <h2 class="mt-3"><b>Entretenimiento</b></h2>
+    </header>
+    <nav class="nav justify-content-center bg-light p-2 flex-wrap align-items-center">
+        <div class="input-group me-3 mb-2 mb-md-0" style="max-width:220px;">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" id="busqueda" class="form-control" placeholder="Buscar noticias...">
+        </div>
+        <a class="nav-link text-dark" href="index.html">Inicio</a>
+        <a class="nav-link text-dark" href="deportes.html">Deportes</a>
+        <a class="nav-link text-dark" href="entretenimiento.html">Entretenimiento</a>
+        <a class="nav-link text-dark" href="judiciales.html">Judiciales</a>
+    </nav>
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="item-noticia" id="contenedor-principal">
+                    <div class="mb-4 noticia-main" id="noticia-main"></div>
+                    <hr>
+                    <div class="mb-4" id="noticia-img"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="fw-bold border-bottom pb-2 mb-3">Más leídas</h3>
+                <div id="mas-leidas-lista"></div>
+            </div>
+        </div>
+        <div id="sin-resultados" class="text-center text-muted py-4 d-none">No se encontraron noticias con esa palabra clave.</div>
+        <!-- Noticias principales como templates -->
+        <template id="noticia-0">
+            <h1 class="fw-bold display-6">"Barbenheimer" arrasa en taquilla mundial</h1>
+            <p class="lead">El fenómeno de "Barbie" y "Oppenheimer" continúa rompiendo récords en la taquilla global, sorprendiendo a la industria del cine con miles de millones en ingresos combinados.</p>
+            <p>Ambas películas han dominado las conversaciones en redes sociales y generado colaboraciones inesperadas entre sus elencos. Se espera que ambas producciones sean protagonistas en la temporada de premios.</p>
+            <img src="imagen/bar.jpg" class="img-fluid w-100 rounded" alt="Barbenheimer arrasa en taquilla">
+        </template>
+        <template id="noticia-1">
+            <h1 class="fw-bold display-6">Taylor Swift anuncia gira mundial para 2026</h1>
+            <p class="lead">La superestrella pop reveló fechas para una gira internacional que incluirá paradas en América Latina, Europa y Asia, y que promete shows innovadores y colaboraciones inesperadas.</p>
+            <p>Las entradas generan grandes expectativas y se estima que los conciertos podrían romper récords de asistencia en varias ciudades.</p>
+            <img src="imagen/taylor.jpeg" class="img-fluid w-100 rounded" alt="Taylor Swift anuncia gira 2026">
+        </template>
+        <template id="noticia-2">
+            <h1 class="fw-bold display-6">Lista de ganadores en los Premios Emmy 2026</h1>
+            <p class="lead">La gala de los Emmy sorprendió con series y actores que no partían como favoritos. La ficción española “La Casa Nueva” triunfó como mejor drama internacional.</p>
+            <p>Además, varios intérpretes latinoamericanos fueron reconocidos por su trabajo en producciones globales, marcando tendencia en la industria televisiva.</p>
+            <img src="imagen/emmys.png" class="img-fluid w-100 rounded" alt="Premios Emmy 2026">
+        </template>
+        <template id="noticia-3">
+            <h1 class="fw-bold display-6">"Stranger Things" llega a su esperado final</h1>
+            <p class="lead">El episodio final de la exitosa serie fue lanzado globalmente y alcanzó cifras récord de audiencia en las primeras 24 horas de estreno.</p>
+            <p>Los fanáticos elogiaron el desenlace, aunque algunos manifestaron nostalgia por el cierre de una de las historias más influyentes de la última década.</p>
+            <img src="imagen/st.jpg" class="img-fluid w-100 rounded" alt="Stranger Things finaliza">
+        </template>
+        <template id="noticia-4">
+            <h1 class="fw-bold display-6">España gana Eurovisión 2026</h1>
+            <p class="lead">Por primera vez en más de cincuenta años, España se alzó con el trofeo en el popular certamen musical europeo tras una votación emocionante.</p>
+            <p>La cantante triunfadora fue recibida por multitudes y el país celebró la victoria con eventos y homenajes en todo el territorio nacional.</p>
+            <img src="imagen/gorda.jpg" class="img-fluid w-100 rounded" alt="España Eurovisión 2026">
+        </template>
+        <template id="noticia-5">
+            <h1 class="fw-bold display-6">Regresa el universo Harry Potter a la pantalla</h1>
+            <p class="lead">Se confirma una nueva saga ambientada en el mundo mágico de J.K. Rowling, con nuevos personajes y escenarios.</p>
+            <p>Los productores prometen efectos especiales innovadores y participación de antiguos actores en papeles sorpresa.</p>
+            <img src="imagen/hp.png" class="img-fluid w-100 rounded" alt="Harry Potter saga nueva">
+        </template>
+        <template id="noticia-6">
+            <h1 class="fw-bold display-6">Adele lanza álbum sorpresa y rompe streaming</h1>
+            <p class="lead">Sin previo aviso, Adele lanzó su nuevo disco y el mundo de la música respondió con millones de reproducciones en solo horas.</p>
+            <p>Las críticas son positivas y se habla ya de un tour internacional para finales de año.</p>
+            <img src="imagen/adele.jpg" class="img-fluid w-100 rounded" alt="Adele nuevo álbum">
+        </template>
+        <template id="noticia-7">
+            <h1 class="fw-bold display-6">"La Casa de Papel" concluye con audiencia histórica</h1>
+            <p class="lead">La serie española de atracos se despidió con un capítulo doble repleto de acción y un giro final que sorprendió a millones de fans.</p>
+            <p>El elenco agradeció en redes sociales el apoyo internacional y dejó abierta la puerta a posibles spin-offs.</p>
+            <img src="imagen/cp.png" class="img-fluid w-100 rounded" alt="Casa de Papel finaliza">
+        </template>
+        <template id="noticia-8">
+            <h1 class="fw-bold display-6">Nominados a los Grammy 2026: gran presencia latina</h1>
+            <p class="lead">La Academia reveló la lista de nominados y los artistas de habla hispana lideran varias categorías importantes, incluyendo Álbum del Año y Nuevo Artista.</p>
+            <p>El éxito de la música latina sigue dejando huella en los escenarios internacionales y en plataformas de streaming.</p>
+            <img src="imagen/grammy.jpg" class="img-fluid w-100 rounded" alt="Nominados Grammy 2026">
+        </template>
+        <template id="noticia-9">
+            <h1 class="fw-bold display-6">Marvel anuncia Fase 7 con nuevas películas y series</h1>
+            <p class="lead">El universo cinematográfico de Marvel sigue expandiéndose con el anuncio oficial de su Fase 7, incluyendo películas de superhéroes inéditos y nuevas series de Disney+.</p>
+            <p>El estudio promete más diversidad y la llegada de creativos internacionales a los proyectos más esperados.</p>
+            <img src="imagen/marvel.png" class="img-fluid w-100 rounded" alt="Marvel Fase 7">
+        </template>
+        <script>
+        var noticiasMasLeidas = [
+          {titulo:'"Barbenheimer" arrasa en taquilla mundial', resumen:'Barbie y Oppenheimer dominan los cines y apuntan a grandes premios.', id:0, img: 'imagen/bar.jpg'},
+          {titulo:'Taylor Swift anuncia gira mundial para 2026', resumen:'Expectativa altísima por el tour global de la cantante.', id:1, img: 'imagen/taylor.jpeg'},
+          {titulo:'Lista de ganadores en los Premios Emmy 2026', resumen:'Premian a series y actores inesperados, brillo latino.', id:2, img: 'imagen/emmys.png'},
+          {titulo:'"Stranger Things" llega a su esperado final', resumen:'El desenlace marca récord en visualizaciones streaming.', id:3, img: 'imagen/st.jpg'},
+          {titulo:'España gana Eurovisión 2026', resumen:'La victoria histórica celebrada en todo el país.', id:4, img: 'imagen/gorda.jpg'},
+          {titulo:'Regresa el universo Harry Potter a la pantalla', resumen:'Nueva saga mágica entusiasma a fans del mundo.', id:5, img: 'imagen/hp.png'},
+          {titulo:'Adele lanza álbum sorpresa y rompe streaming', resumen:'Reacciones masivas al nuevo disco inesperado de Adele.', id:6, img: 'imagen/adele.jpg'},
+          {titulo:'"La Casa de Papel" concluye con audiencia histórica', resumen:'El adiós a la serie sorprende con un giro final.', id:7, img: 'imagen/cp.png'},
+          {titulo:'Nominados a los Grammy 2026: gran presencia latina', resumen:'Música hispana lidera las nominaciones clave.', id:8, img: 'imagen/grammy.jpg'},
+          {titulo:'Marvel anuncia Fase 7 con nuevas películas y series', resumen:'Superhéroes y nuevas historias en la agenda Marvel.', id:9, img: 'imagen/marvel.png'}
+        ];
+        function rellenarMasLeidas() {
+          var lista = document.getElementById('mas-leidas-lista');
+          lista.innerHTML = '';
+          noticiasMasLeidas.forEach(function(noticia) {
+            lista.innerHTML += `
+              <div class='d-flex mb-3 mas-leidas-nota item-noticia' onclick='cargarNoticia(${noticia.id})'>
+                <img src='${noticia.img}' class='flex-shrink-0 rounded' width='80' alt='${noticia.titulo}'>
+                <div class='ms-3'>
+                  <div class='fw-semibold'>${noticia.titulo}</div>
+                  <small>${noticia.resumen}</small>
+                </div>
+              </div>
+            `;
+          });
+        }
+        function cargarNoticia(idx) {
+          var content = document.getElementById('noticia-' + idx).content.cloneNode(true);
+          var main = document.getElementById('noticia-main');
+          var imgDiv = document.getElementById('noticia-img');
+          main.innerHTML = '';
+          imgDiv.innerHTML = '';
+          // Separa contenido y la última imagen encontrada
+          var temp = document.createElement('div');
+          temp.appendChild(content);
+          var img = temp.querySelector('img');
+          if (img) img.remove();
+          main.innerHTML = temp.innerHTML;
+          if (img) imgDiv.appendChild(img);
+        }
+        window.onload = function(){
+          rellenarMasLeidas();
+          var idx = 0;
+          if (window.location.hash) {
+            var n = parseInt(window.location.hash.replace('#', ''));
+            if (!isNaN(n)) idx = n;
+          }
+          cargarNoticia(idx);
+          (function(){
+            var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+            var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+            function actualizarFecha(){
+              var d=new Date();
+              var el=document.getElementById('fecha-actual');
+              if(el) el.textContent=dias[d.getDay()]+', '+d.getDate()+' de '+meses[d.getMonth()]+' de '+d.getFullYear();
+            }
+            function filtrar(){
+              var busqEl=document.getElementById('busqueda');
+              var q=(busqEl&&busqEl.value)||'';
+              var term=q.trim().toLowerCase();
+              var items=document.querySelectorAll('.item-noticia');
+              var sinRes=document.getElementById('sin-resultados');
+              var visible=0;
+              for(var i=0;i<items.length;i++){
+                var it=items[i];
+                var txt=(it.textContent||'').toLowerCase();
+                var match=!term||txt.indexOf(term)!==-1;
+                it.classList.toggle('d-none',!match);
+                if(match) visible++;
+              }
+              if(sinRes) sinRes.classList.toggle('d-none',visible>0||!term);
+            }
+            actualizarFecha();
+            setInterval(actualizarFecha,60000);
+            var busq=document.getElementById('busqueda');
+            if(busq){
+              busq.addEventListener('input',filtrar);
+              busq.addEventListener('keyup',filtrar);
+              busq.addEventListener('paste',filtrar);
+            }
+          })();
+        };
+        </script>
+    </main>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deportes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    <header class="text-center">
+            <img src="imagen/logo.png" alt="Logo">
+            <div id="fecha-actual" class="mt-2 text-muted small"></div>
+            <h2 class="mt-3"><b>Deportes</b></h2>
+    </header>
+    <nav class="nav justify-content-center bg-light p-2 flex-wrap align-items-center">
+        <div class="input-group me-3 mb-2 mb-md-0" style="max-width:220px;">
+            <span class="input-group-text"><i class="bi bi-search"></i></span>
+            <input type="text" id="busqueda" class="form-control" placeholder="Buscar noticias...">
+        </div>
+        <a class="nav-link text-dark" href="index.html">Inicio</a>
+        <a class="nav-link text-dark" href="deportes.html">Deportes</a>
+        <a class="nav-link text-dark" href="entretenimiento.html">Entretenimiento</a>
+        <a class="nav-link text-dark" href="judiciales.html">Judiciales</a>
+    </nav>
+    <main class="container mt-5">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="item-noticia" id="contenedor-principal">
+                    <div class="mb-4 noticia-main" id="noticia-main"></div>
+                    <hr>
+                    <div class="mb-4" id="noticia-img"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h3 class="fw-bold border-bottom pb-2 mb-3">Más leídas</h3>
+
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(0)">
+                    <img src="imagen/gamin.jpg" class="flex-shrink-0 rounded" width="80" alt="Barcelona vs Levante">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Barcelona goleó a Levante y tumbó a Real Madrid</div>
+                        <small>Barcelona recuperó la primera posición con un desempeño destacado en LaLiga de España.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(1)">
+                    <img src="imagen/usa.png" class="flex-shrink-0 rounded" width="80" alt="Hockey USA oro">
+                    <div class="ms-3">
+                        <div class="fw-semibold">USA logra el oro olímpico en hockey</div>
+                        <small>Histórica victoria estadounidense en los Juegos Olímpicos de Invierno 2026.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(2)">
+                    <img src="imagen/messi.jpg" class="flex-shrink-0 rounded" width="80" alt="Messi investigado">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Lionel Messi bajo investigación en la MLS</div>
+                        <small>Analizan posible violación de protocolos tras partido reciente.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(3)">
+                    <img src="imagen/nfl.jpg" class="flex-shrink-0 rounded" width="80" alt="NFL Draft 2026">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Expectativa creciente por el Draft 2026 de la NFL</div>
+                        <small>Mariscales de campo y defensas encabezan la lista de talentos universitarios.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(4)">
+                    <img src="imagen/duke.jpg" class="flex-shrink-0 rounded" width="80" alt="Duke vs Michigan NCAA">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Duke vence a Michigan en baloncesto universitario</div>
+                        <small>Solidez defensiva y efectividad en los tiros clave dan triunfo a Duke.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(5)">
+                    <img src="imagen/ufc.png" class="flex-shrink-0 rounded" width="80" alt="Conor Benn Zuffa Boxing">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Dana White critica el fichaje de Conor Benn</div>
+                        <small>Controversia en el boxeo tras el movimiento entre promotores.</small>
+                    </div>
+                </div>
+                <div class="d-flex mb-3 mas-leidas-nota item-noticia" onclick="cargarNoticia(6)">
+                    <img src="imagen/gu.jpg" class="flex-shrink-0 rounded" width="80" alt="Eileen Gu oro halfpipe">
+                    <div class="ms-3">
+                        <div class="fw-semibold">Eileen Gu retiene el oro olímpico en halfpipe</div>
+                        <small>La esquiadora domina de nuevo y amplía su historial olímpico.</small>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="sin-resultados" class="text-center text-muted py-4 d-none">No se encontraron noticias con esa palabra clave.</div>
+        <!-- Noticias principales ocultas como templates -->
+        <template id="noticia-0">
+            <h1 class="fw-bold display-6">Barcelona goleó a Levante y tumbó a Real Madrid de la cima de la tabla en España</h1>
+            <p class="lead">Barcelona aprovechó la derrota que sufrió Real Madrid para recuperar la punta de la tabla en LaLiga de España.</p>
+            <p>Serio y efectivo contra el Levante (3-0) en el Camp Nou, FC Barcelona aprovechó este domingo la derrota del Real Madrid la víspera ante Osasuna (2-1) para recuperar la primera posición de LaLiga. A pesar de dos intervenciones decisivas de su arquero Joan García (1′, 15′), el Barça (1º, 61 puntos) impuso la lógica para superar al recién ascendido conjunto granota (19º, 18 puntos), después de dos reveses consecutivos ante Atlético de Madrid (4-0) y Girona (2-1).</p>
+            <img src="imagen/gamin.jpg" class="img-fluid w-100 rounded" alt="Barcelona goleó a Levante">
+        </template>
+        <template id="noticia-1">
+            <h1 class="fw-bold display-6">Estados Unidos gana el oro en hockey masculino en los Juegos Olímpicos de Invierno 2026</h1>
+            <p class="lead">La selección masculina de hockey sobre hielo de Estados Unidos logró una victoria histórica al derrotar a Canadá en la final olímpica, consiguiendo así su primera medalla de oro en esta disciplina en varias décadas. El partido se definió en tiempo extra, desatando la euforia entre jugadores y aficionados.</p>
+            <p>El triunfo representa un momento icónico para el deporte estadounidense, consolidando a esta generación como una de las más exitosas. El encuentro fue intenso de principio a fin, con una destacada actuación del portero y una defensa sólida que marcó la diferencia en los minutos decisivos.</p>
+            <img src="imagen/usa.png" class="img-fluid w-100 rounded" alt="Estados Unidos oro hockey">
+        </template>
+        <template id="noticia-2">
+            <h1 class="fw-bold display-6">Lionel Messi bajo investigación tras incidente en la Major League Soccer</h1>
+            <p class="lead">La liga estadounidense analiza un supuesto video en el que Lionel Messi habría ingresado al vestuario de los árbitros después de un partido reciente. El hecho generó debate sobre el cumplimiento de los protocolos establecidos por la competición.</p>
+            <p>Aunque la MLS confirmó que revisa las imágenes, hasta el momento no se ha determinado que exista una violación formal del reglamento. El caso ha generado gran atención mediática debido al perfil internacional del jugador argentino.</p>
+            <img src="imagen/messi.jpg" class="img-fluid w-100 rounded" alt="Messi bajo investigación MLS">
+        </template>
+        <template id="noticia-3">
+            <h1 class="fw-bold display-6">Expectativa creciente por el Draft 2026 de la National Football League</h1>
+            <p class="lead">Ejecutivos y analistas deportivos ya proyectan a las principales figuras universitarias que podrían convertirse en las primeras selecciones del Draft 2026.</p>
+            <p>Varios equipos en proceso de reconstrucción aparecen como candidatos a obtener las primeras elecciones. El rendimiento en la próxima temporada universitaria será clave para definir el orden definitivo.</p>
+            <img src="imagen/nfl.png" class="img-fluid w-100 rounded" alt="NFL Draft 2026">
+        </template>
+        <template id="noticia-4">
+            <h1 class="fw-bold display-6">Duke Blue Devils men's basketball sorprende al vencer a Michigan Wolverines men's basketball</h1>
+            <p class="lead">En un enfrentamiento de alto nivel en el baloncesto universitario estadounidense, Duke logró imponerse 68-63 ante Michigan, que llegaba como uno de los favoritos de la temporada.</p>
+            <p>La victoria fortalece la posición de Duke de cara al torneo nacional de la NCAA. El equipo mostró solidez defensiva y efectividad en los tiros clave.</p>
+            <img src="imagen/duke.jpg" class="img-fluid w-100 rounded" alt="Duke vs Michigan NCAA">
+        </template>
+        <template id="noticia-5">
+            <h1 class="fw-bold display-6">Dana White critica el fichaje de Conor Benn por Zuffa Boxing</h1>
+            <p class="lead">El presidente de UFC reaccionó con dureza tras el anuncio del fichaje del boxeador británico Conor Benn por parte de Zuffa Boxing.</p>
+            <p>Sus declaraciones encendieron nuevamente la rivalidad entre promotores del mundo del boxeo y las artes marciales mixtas.</p>
+            <img src="imagen/ufc.png" class="img-fluid w-100 rounded" alt="Conor Benn Zuffa Boxing">
+        </template>
+        <template id="noticia-6">
+            <h1 class="fw-bold display-6">Eileen Gu retiene su oro olímpico en halfpipe</h1>
+            <p class="lead">La esquiadora volvió a brillar en los Juegos Olímpicos de Invierno 2026 al defender con éxito su medalla de oro en la prueba de halfpipe.</p>
+            <p>Su actuación fue dominante, destacando por la dificultad técnica y la precisión en cada salto. Con este logro, amplía su historial olímpico y se consolida como figura destacada del esquí acrobático mundial.</p>
+            <img src="imagen/gu.jpg" class="img-fluid w-100 rounded" alt="Eileen Gu oro halfpipe">
+        </template>
+        <script>
+            function cargarNoticia(idx) {
+                var content = document.getElementById('noticia-' + idx).content.cloneNode(true);
+                var main = document.getElementById('noticia-main');
+                var imgDiv = document.getElementById('noticia-img');
+                main.innerHTML = '';
+                imgDiv.innerHTML = '';
+                var temp = document.createElement('div');
+                temp.appendChild(content);
+                var img = temp.querySelector('img');
+                if (img) img.remove();
+                main.innerHTML = temp.innerHTML;
+                if (img) imgDiv.appendChild(img);
+            }
+            window.onload = function() {
+                var idx = 0;
+                if (window.location.hash) {
+                  var n = parseInt(window.location.hash.replace('#', ''));
+                  if (!isNaN(n)) idx = n;
+                }
+                cargarNoticia(idx);
+                (function(){
+                    var dias=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+                    var meses=['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+                    function actualizarFecha(){
+                        var d=new Date();
+                        var el=document.getElementById('fecha-actual');
+                        if(el) el.textContent=dias[d.getDay()]+', '+d.getDate()+' de '+meses[d.getMonth()]+' de '+d.getFullYear();
+                    }
+                    function filtrar(){
+                        var busqEl=document.getElementById('busqueda');
+                        var q=(busqEl&&busqEl.value)||'';
+                        var term=q.trim().toLowerCase();
+                        var items=document.querySelectorAll('.item-noticia');
+                        var sinRes=document.getElementById('sin-resultados');
+                        var visible=0;
+                        for(var i=0;i<items.length;i++){
+                            var it=items[i];
+                            var txt=(it.textContent||'').toLowerCase();
+                            var match=!term||txt.indexOf(term)!==-1;
+                            it.classList.toggle('d-none',!match);
+                            if(match) visible++;
+                        }
+                        if(sinRes) sinRes.classList.toggle('d-none',visible>0||!term);
+                    }
+                    actualizarFecha();
+                    setInterval(actualizarFecha,60000);
+                    var busq=document.getElementById('busqueda');
+                    if(busq){
+                        busq.addEventListener('input',filtrar);
+                        busq.addEventListener('keyup',filtrar);
+                        busq.addEventListener('paste',filtrar);
+                    }
+                })();
+            }
+        </script>
+    </main>
+</body>
+</html>
